@@ -1,8 +1,10 @@
+"use client"
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/Header";
-const inter = Outfit({ subsets: ["latin"] });
 import NextAuthSessionProvider from './provider'
+const inter = Outfit({ subsets: ["latin"] });
+
 
 export const metadata = {
   title: "Anartby",

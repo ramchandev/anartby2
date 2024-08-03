@@ -18,7 +18,7 @@ function Header() {
         </div>
     </div>
     <div>
-    <Button onClick={()=>signIn('descope')}>Login / Sign Up</Button>
+    <Button onClick={() => signIn("descope", { callbackUrl: "/dashboard" })}>Login / Sign Up</Button>
         </div>
     </div>
   )
