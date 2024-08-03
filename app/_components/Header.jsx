@@ -1,8 +1,9 @@
-"use client"
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import { useEffect, useState } from "react"
 import { Button } from '@/components/ui/button'
+import { signIn } from "next-auth/react"
 
 function Header() {
   return (
@@ -17,7 +18,7 @@ function Header() {
         </div>
     </div>
     <div>
-            <Button>Login / Sign Up</Button>
+    <Button onClick={()=>signIn('descope')}>Login / Sign Up</Button>
         </div>
     </div>
   )
