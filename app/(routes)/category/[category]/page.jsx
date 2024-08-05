@@ -5,22 +5,30 @@ import React from 'react'
 import { useEffect, useState } from "react";
  
 function paintingByCategory({params}) {
+  const catName=params.category;
+  const fullCat = catName.replace(/-/g, ' ');
+  const titlecat=fullCat.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
+
   const [productList,setProductList]=useState([]);
   useEffect(()=>{
-    console.log(params)
+    
 params&&getPaitnings()
   },[params])
 
   const getPaitnings=()=>{
     GlobalApi.getPaintingByartist(params.category).then(resp=>{
       setProductList(resp?.products);
+      
     }
       
     )
   }
   return (
     <div>
-      <ProductList title={params.category}
+
+
+
+      <ProductList title={titlecat}
       productList={productList} />
     </div>
   )
