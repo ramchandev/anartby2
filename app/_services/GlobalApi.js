@@ -9,6 +9,7 @@ const getCategory = async() => {
   {
     id
     name
+    slug
     description
     catImage
     {
@@ -47,7 +48,36 @@ const getFeaturedProducts = async() => {
     const result = await request(MASTER_URL, query)
     return result
 }
+
+const getPaintingByartist = async(category) => {
+  const query = gql `
+  query getproductsq{
+ products (where: {categories_every:{slug:"`+category+`"}}){
+  id
+  name
+  description
+  tag{
+    id
+    tagName
+  }
+  images
+  {
+    url
+  }
+  categories
+  {
+    name
+    slug
+  }
+  price
+  
+}
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
 export default {
     getCategory,
-    getFeaturedProducts
+    getFeaturedProducts,
+    getPaintingByartist
 }

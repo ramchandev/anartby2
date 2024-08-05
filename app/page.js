@@ -32,7 +32,7 @@ export default function Home() {
   */
   const getFeaturedProducts=()=>{
   GlobalApi.getFeaturedProducts().then(resp=>{
-  console.log(resp.products);
+  //console.log(resp.products);
   setProductList(resp.products);
 
 })
