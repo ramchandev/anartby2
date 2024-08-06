@@ -1,37 +1,34 @@
-"use client"
-import ProductList from '@/app/_components/ProductList';
-import GlobalApi from '@/app/_services/GlobalApi';
-import React from 'react'
+"use client";
+import ProductList from "@/app/_components/ProductList";
+import GlobalApi from "@/app/_services/GlobalApi";
+import React from "react";
 import { useEffect, useState } from "react";
- 
-function paintingByCategory({params}) {
-  const catName=params.category;
-  const fullCat = catName.replace(/-/g, ' ');
-  const titlecat=fullCat.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
+import CatDetails from "../_components/CatDetails";
 
-  const [productList,setProductList]=useState([]);
-  useEffect(()=>{
-    
-params&&getPaitnings()
-  },[params])
+function paintingByCategory({ params }) {
+  const catName = params.category;
+  const fullCat = catName.replace(/-/g, " ");
+  const titlecat = fullCat
+    .toLowerCase()
+    .replace(/\b\w/g, (s) => s.toUpperCase());
 
-  const getPaitnings=()=>{
-    GlobalApi.getPaintingByartist(params.category).then(resp=>{
+  const [productList, setProductList] = useState([]);
+  useEffect(() => {
+    params && getPaitnings();
+  }, [params]);
+
+  const getPaitnings = () => {
+    GlobalApi.getPaintingByartist(params.category).then((resp) => {
       setProductList(resp?.products);
-      
-    }
-      
-    )
-  }
+    });
+  };
+
   return (
     <div>
-
-
-
-      <ProductList title={titlecat}
-      productList={productList} />
+      <CatDetails />
+      <ProductList title={''} productList={productList} />
     </div>
-  )
+  );
 }
 
-export default paintingByCategory 
+export default paintingByCategory;

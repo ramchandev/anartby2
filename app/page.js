@@ -13,11 +13,20 @@ export default function Home() {
 
   const [categoryList,setCategoryList]=useState([]);
   const [productList,setProductList]=useState([]);
+  const [productFeList,setFeProductList]=useState([]);
 
   useEffect(()=>{
     getcatsList(); //Usage
     getFeaturedProducts(); //Usage of the function
+    getFeaturedPro();
   },[])
+
+  const getFeaturedPro=()=>{
+    GlobalApi.getFeaturedPro().then(resp=>{
+      console.log(resp);
+      setFeProductList(resp.products);
+    })
+  }
 
   /*
   * To get all Categories
@@ -42,7 +51,8 @@ export default function Home() {
        <div>
      <Hero/>
      <CategoryList categoryList={categoryList}/>
-     <ProductList productList={productList} title={'Featured Products'} />
+    
+     <ProductList productList={productFeList} title={'Featured Products'} />
        </div>
   
   );

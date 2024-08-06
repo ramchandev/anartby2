@@ -78,8 +78,56 @@ const getPaintingByartist = async(category) => {
 const result = await request(MASTER_URL, query)
 return result
 }
+
+const getFeaturedPro =async()=>{
+  const query = gql `
+   query getproducts {
+  products(where: {featured: true}) {
+    id
+    name
+    description
+    sku
+    tag {
+      id
+      tagName
+    }
+    images {
+      url
+    }
+      categories
+  {
+    name
+  }
+    price
+  }
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
+
+const querySingleCat =async(category)=>{
+  const query = gql `
+   query getsinglecat {
+  categories(where: {slug: "`+category+`"}) {
+    id
+    name
+    description
+    catImage
+    {
+      url
+    }
+  }
+  
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
+
+
 export default {
     getCategory,
     getFeaturedProducts,
-    getPaintingByartist
+    getPaintingByartist,
+    getFeaturedPro,
+    querySingleCat
 }

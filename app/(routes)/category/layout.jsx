@@ -13,7 +13,9 @@ function layout({children}) {
         <div className='hidden md:block col-span-1'>
             <CategorySidebar />
         </div>
-    <div className='md:col-span-3'>{children}</div>
+    <div className='md:col-span-3'>
+      
+      {children}</div>
     </div>
     </div>
 

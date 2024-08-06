@@ -26,7 +26,7 @@ useEffect(()=>{
 const getcatsList=()=>{
   GlobalApi.getCategory().then(resp=>{
     setCategoryList(resp.categories);
-    console.log(resp.categories);
+    //console.log(resp.categories);
   })
 }
 
