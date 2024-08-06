@@ -26,17 +26,17 @@ function CatDetails() {
     <div>{
         catdata.map((item,index)=>(
       
-            <div key={index} className='pb-10'>
+            <div key={index} className='pb-5'>
 
-<div className='grid grid-cols-4 mt-8'>
+<div className='grid grid-cols-4 gap-4 mt-8'>
         <div className='col-span-1'>
         <Image className='rounded' src={catdata[0].catImage.url} alt={catdata[0].name} width={216} height={216}/>
 
         </div>
     <div className='col-span-3'>
-    <h2 className='font-bold text-[22px]'>{catdata[0].name}</h2>
-                <div className='text-sm'>{catdata[0].description}</div>
-                <h2 className='font-bold pt-3'>Here are some of {catdata[0].name} curated paintings:</h2>
+    <h2 className='font-bold text-[24px]'>{catdata[0].name}</h2>
+                <div className=''>{catdata[0].description}</div>
+                <h2 className='font-bold pt-3'>Here are {catdata[0].name} curated paintings:</h2>
        </div>
     </div>
 
