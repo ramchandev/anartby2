@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
+import Link from 'next/link';
 function ProductList({productList,title}) {
   return (
     <div className='mt-5 '>
@@ -9,17 +10,19 @@ function ProductList({productList,title}) {
     {
         productList.length>0?productList.map(
             (products,index)=>(
-            <div key={index} className='shadow-md rounded-lg hover:shadow-lg hover:shadow-orange-300 cursor-pointer hover:scale-105 transition-all ease-in-out'>
+              <Link key={index} href={products.categories[0].slug+'/'+products.slug}>
+            <div  className='shadow-md rounded-lg hover:shadow-lg hover:shadow-orange-300 cursor-pointer hover:scale-105 transition-all ease-in-out'>
                 <Image className='ht-[216px] md:h-[270px] object-cover rounded-sm' src={products?.images[0].url} width={360} height={360} alt={products.name}/>
                 <div className='flex flex-col items-baseline p-3 gap-2'>
                     <h2 className='p-1 bg-orange-100 text-primary rounded-full text-[12px]'> {products.sku}</h2>
                     <h2 className='font-bold text-lg pt-1'>{products.name}</h2>
                     <h2 className='font-thin'>{products.categories[0].name}</h2>
                     <h2 className='font-bold text-primary pt-1'>₹{products.price}</h2>
-                    <Button className='m-2'>Buy Now</Button>
+                    <Button className='m-2'>View Details</Button>
                     </div>
 
             </div>
+            </Link>
         )):
 
         [1,2,3,4,5,6].map((item,index)=>(

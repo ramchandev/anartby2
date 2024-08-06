@@ -30,6 +30,7 @@ const getFeaturedProducts = async() => {
   name
   description
   sku
+  slug
   tag{
     tagName
   }
@@ -40,6 +41,7 @@ const getFeaturedProducts = async() => {
   categories
   {
     name
+    slug
   }
   price
   
@@ -58,6 +60,7 @@ const getPaintingByartist = async(category) => {
   name
   description
   sku
+  slug
   tag{
     id
     tagName
@@ -87,6 +90,7 @@ const getFeaturedPro =async()=>{
     name
     description
     sku
+    slug
     tag {
       id
       tagName
@@ -123,11 +127,40 @@ const result = await request(MASTER_URL, query)
 return result
 }
 
+const querySingleproduct =async(productslug)=>{
+  const query = gql `
+   query getsingleproduct {
+  products(where: {slug: "`+productslug+`"}) {
+    id
+    name
+    description
+    sku
+    slug
+    tag {
+      id
+      tagName
+    }
+    images {
+      url
+    }
+    categories {
+      name
+      slug
+    }
+    price
+  }
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
+
+
 
 export default {
     getCategory,
     getFeaturedProducts,
     getPaintingByartist,
     getFeaturedPro,
-    querySingleCat
+    querySingleCat,
+    querySingleproduct
 }
