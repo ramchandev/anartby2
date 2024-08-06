@@ -1,6 +1,11 @@
 import React from 'react'
 import CategorySidebar from './_components/CategorySidebar'
 
+export const metadata = {
+  title: "Anartby Category",
+  description: "View Our Collections",
+};
+
 function layout({children}) {
   return (
     <div>

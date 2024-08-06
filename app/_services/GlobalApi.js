@@ -29,6 +29,7 @@ const getFeaturedProducts = async() => {
   id
   name
   description
+  sku
   tag{
     tagName
   }
@@ -56,6 +57,7 @@ const getPaintingByartist = async(category) => {
   id
   name
   description
+  sku
   tag{
     id
     tagName

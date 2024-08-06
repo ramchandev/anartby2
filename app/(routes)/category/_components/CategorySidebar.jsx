@@ -36,7 +36,7 @@ const getcatsList=()=>{
         <div >
 {categoryList.map((category,index)=>(
     <Link href={'/category/'+category.slug} key={index} className={`flex gap-2 p-3 border rounded mb-3 mr-10 cursor-pointer hover:bg-orange-50 hover:text-primary hover:shadow-sm items-center
-      ${selectedCategory==category.slug&&'border-x-primary text-primary shadow-md bg-orange-50'}
+      ${selectedCategory==category.slug&&'border-primary text-primary shadow-md bg-orange-50'}
       `
 
     }>
