@@ -9,6 +9,7 @@ const getCategory = async() => {
   {
     id
     name
+    slug
     description
     catImage
     {
@@ -28,6 +29,7 @@ const getFeaturedProducts = async() => {
   id
   name
   description
+  sku
   tag{
     tagName
   }
@@ -47,7 +49,85 @@ const getFeaturedProducts = async() => {
     const result = await request(MASTER_URL, query)
     return result
 }
+
+const getPaintingByartist = async(category) => {
+  const query = gql `
+  query getproductsq{
+ products (where: {categories_every:{slug:"`+category+`"}}){
+  id
+  name
+  description
+  sku
+  tag{
+    id
+    tagName
+  }
+  images
+  {
+    url
+  }
+  categories
+  {
+    name
+    slug
+  }
+  price
+  
+}
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
+
+const getFeaturedPro =async()=>{
+  const query = gql `
+   query getproducts {
+  products(where: {featured: true}) {
+    id
+    name
+    description
+    sku
+    tag {
+      id
+      tagName
+    }
+    images {
+      url
+    }
+      categories
+  {
+    name
+  }
+    price
+  }
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
+
+const querySingleCat =async(category)=>{
+  const query = gql `
+   query getsinglecat {
+  categories(where: {slug: "`+category+`"}) {
+    id
+    name
+    description
+    catImage
+    {
+      url
+    }
+  }
+  
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
+
+
 export default {
     getCategory,
-    getFeaturedProducts
+    getFeaturedProducts,
+    getPaintingByartist,
+    getFeaturedPro,
+    querySingleCat
 }

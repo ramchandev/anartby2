@@ -12,9 +12,9 @@ function ProductList({productList,title}) {
             <div key={index} className='shadow-md rounded-lg hover:shadow-lg hover:shadow-orange-300 cursor-pointer hover:scale-105 transition-all ease-in-out'>
                 <Image className='ht-[216px] md:h-[270px] object-cover rounded-sm' src={products?.images[0].url} width={360} height={360} alt={products.name}/>
                 <div className='flex flex-col items-baseline p-3 gap-2'>
-                    <h2 className='p-1 bg-orange-300 text-primary rounded-full text-[12px]'>{products.categories[0].name}</h2>
-                    <h2 className='font-bold text-sm pt-1'>{products.name}</h2>
-                    <h2 className='font-thin'>{products.tag[0].tagName}</h2>
+                    <h2 className='p-1 bg-orange-100 text-primary rounded-full text-[12px]'> {products.sku}</h2>
+                    <h2 className='font-bold text-lg pt-1'>{products.name}</h2>
+                    <h2 className='font-thin'>{products.categories[0].name}</h2>
                     <h2 className='font-bold text-primary pt-1'>₹{products.price}</h2>
                     <Button className='m-2'>Buy Now</Button>
                     </div>
