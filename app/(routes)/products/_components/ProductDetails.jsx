@@ -30,7 +30,13 @@ function ProductDetails() {
         productData.map((item,index)=>(
             <div key={index}>
                 <div className='flex flex-row gap-8'>
-                    <div className='basis-1/10'><Image src={productData[0].images[0].url} width={360} height={360} alt={productData[0].name}/></div>
+                    <div className='basis-1/10'>
+                    
+                    <Image src={productData[0].images[0].url} width={360} height={360} alt={productData[0].name}/>
+
+                    
+                    
+                    </div>
                     <div className='basis-1/2'>
                     
                     <h2 className='text-[26px]'>{productData[0].name}</h2>
