@@ -44,6 +44,7 @@ const getFeaturedProducts = async() => {
     slug
   }
   price
+  salePrice
   
 }
 }
@@ -76,6 +77,7 @@ const getPaintingByartist = async(category) => {
     slug
   }
   price
+  salePrice
   specs
     {
       name
@@ -112,8 +114,10 @@ const getFeaturedPro =async()=>{
       categories
   {
     name
+    slug
   }
     price
+    salePrice
     specs
     {
       name
@@ -170,6 +174,7 @@ const querySingleproduct =async(productslug)=>{
       slug
     }
     price
+    salePrice
     specs
     {
       name

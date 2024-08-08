@@ -106,10 +106,15 @@ function ProductDetails() {
                 {productData[0].shotDesc}
               </p>
               <div>
-                
-              <h2 className="text-[22px] pb-4 text-primary font-semibold">₹{productData[0].price} 
+                <div className="flex">
+              <div className=" text-gray-400 pt-1 line-through pr-2">
+                        ₹{productData[0].price}
+                      
+                      </div>
+                      <h2 className="text-[22px] pb-4 text-primary font-semibold">₹{productData[0].salePrice} 
                <span className="text-sm text-black"> per unit</span>
                 </h2> 
+                      </div>
                  
                   <div className="flex w-full max-w-sm items-center space-x-2">
                     <Input type="number" min="1" max="50" step="1"/>

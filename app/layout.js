@@ -8,6 +8,7 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
+import Footer from "./_components/Footer";
 const inter = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
@@ -22,9 +23,10 @@ export default function RootLayout({ children }) {
 
     <html lang="en">
       <body className={inter.className}>
-        <div className="mx-6 md:mx-16">
+        <div className="">
           <Header/>
         {children}
+        <Footer/>
         </div>
    
         </body>

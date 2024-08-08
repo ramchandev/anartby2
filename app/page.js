@@ -52,8 +52,9 @@ export default function Home() {
         
      <Hero/>
      <CategoryList categoryList={categoryList}/>
-    
+    <div className="mx-6 md:mx-16 lg:mx-auto container">
      <ProductList productList={productFeList} title={'Featured Products'} />
+     </div>
        </div>
   
   );
