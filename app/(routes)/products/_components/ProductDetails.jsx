@@ -20,6 +20,30 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
 
 function ProductDetails() {
   const params = usePathname();
@@ -46,7 +70,7 @@ function ProductDetails() {
               <Carousel>
                 <CarouselContent>
                   {productData[0].images.map((productImg, index3) => (
-                    <CarouselItem>
+                    <CarouselItem className="flex aspect-square items-center justify-center">
                       <Image
                         key={index3}
                         src={productImg.url}
@@ -62,7 +86,7 @@ function ProductDetails() {
               </Carousel>
             </div>
             <div className="col-span-5 pl-10">
-              <h2 className="text-[26px]">{productData[0].name}</h2>
+              <h2 className="text-[32px]">{productData[0].name}</h2>
               <div className="flex gap-1 pb-2">
                 {productData[0].tag.map((productData2, index2) => (
                   <div key={index2}>
@@ -76,11 +100,65 @@ function ProductDetails() {
               <p className="whitespace-pre-wrap pb-8">
                 {productData[0].description}
               </p>
-              <div classname="">
-                <button className="bg-orange-500 hover:bg-orange-400 text-white font-bold py-2 px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded">
-                  Add to Cart
-                </button>
+              <div>
+                
+                  
+                 
+                  <div className="flex w-full max-w-sm items-center space-x-2">
+                    <Input type="number" min="1" max="50" step="1"/>
+                    <Sheet>
+                      <SheetTrigger>
+                        <Button className="bg-orange-500 hover:bg-orange-400 text-white font-bold py-2 px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded">
+                          Add to Cart
+                        </Button>
+                      </SheetTrigger>
+                      <SheetContent>
+                        <SheetHeader>
+                          <SheetTitle>Cart</SheetTitle>
+                          <SheetDescription>
+                            Products will come here.
+                          </SheetDescription>
+                        </SheetHeader>
+                      </SheetContent>
+                    </Sheet>
+                  </div>
+              
               </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-8 gap-4 mt-8">
+            <div className="col-span-4 pl-4">
+              <h2 className="text-[22px]">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible>
+                {productData[0].faq.map((faqData, index4) => (
+                  <AccordionItem key={index4} value={`item-${index4}`}>
+                    <AccordionTrigger>{faqData.question}</AccordionTrigger>
+                    <AccordionContent>{faqData.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+            <div className="col-span-4 pl-10">
+              <h2 className="text-[22px]">Product Specification</h2>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="">Name</TableHead>
+                    <TableHead className="">Spec Value</TableHead>
+                  </TableRow>
+                </TableHeader>
+
+                <TableBody>
+                  {productData[0].specs.map((specData, index3) => (
+                    <TableRow key={index3}>
+                      <TableCell>{specData.name}: </TableCell>
+                      <TableCell className="font-medium">
+                        {specData.value}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </div>
         </div>

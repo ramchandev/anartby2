@@ -75,7 +75,16 @@ const getPaintingByartist = async(category) => {
     slug
   }
   price
-  
+  specs
+    {
+      name
+      value
+    }
+      faq
+    {
+      question
+      answer
+    }
 }
 }`
 const result = await request(MASTER_URL, query)
@@ -103,6 +112,16 @@ const getFeaturedPro =async()=>{
     name
   }
     price
+    specs
+    {
+      name
+      value
+    }
+      faq
+    {
+      question
+      answer
+    }
   }
 }`
 const result = await request(MASTER_URL, query)
@@ -148,6 +167,16 @@ const querySingleproduct =async(productslug)=>{
       slug
     }
     price
+    specs
+    {
+      name
+      value
+    }
+      faq
+    {
+      question
+      answer
+    }
   }
 }`
 const result = await request(MASTER_URL, query)
