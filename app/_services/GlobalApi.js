@@ -58,6 +58,7 @@ const getPaintingByartist = async(category) => {
  products (where: {categories_every:{slug:"`+category+`"}}){
   id
   name
+  shotDesc
   description
   sku
   slug
@@ -97,6 +98,7 @@ const getFeaturedPro =async()=>{
   products(where: {featured: true}) {
     id
     name
+    shotDesc
     description
     sku
     slug
@@ -152,6 +154,7 @@ const querySingleproduct =async(productslug)=>{
   products(where: {slug: "`+productslug+`"}) {
     id
     name
+    shotDesc
     description
     sku
     slug

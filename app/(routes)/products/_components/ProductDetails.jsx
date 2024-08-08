@@ -61,6 +61,8 @@ function ProductDetails() {
     });
   };
 
+
+  
   return (
     <div>
       {productData.map((item, index) => (
@@ -87,6 +89,9 @@ function ProductDetails() {
             </div>
             <div className="col-span-5 pl-10">
               <h2 className="text-[32px]">{productData[0].name}</h2>
+              <div className="flex">
+           
+              </div>
               <div className="flex gap-1 pb-2">
                 {productData[0].tag.map((productData2, index2) => (
                   <div key={index2}>
@@ -97,12 +102,14 @@ function ProductDetails() {
                 ))}
               </div>
 
-              <p className="whitespace-pre-wrap pb-8">
-                {productData[0].description}
+              <p className="whitespace-pre-wrap pb-4">
+                {productData[0].shotDesc}
               </p>
               <div>
                 
-                  
+              <h2 className="text-[22px] pb-4 text-primary font-semibold">₹{productData[0].price} 
+               <span className="text-sm text-black"> per unit</span>
+                </h2> 
                  
                   <div className="flex w-full max-w-sm items-center space-x-2">
                     <Input type="number" min="1" max="50" step="1"/>
@@ -126,6 +133,11 @@ function ProductDetails() {
               </div>
             </div>
           </div>
+
+          <p className="whitespace-pre-wrap pb-8 pt-8">
+                {productData[0].description}
+              </p>
+
           <div className="grid grid-cols-8 gap-4 mt-8">
             <div className="col-span-4 pl-4">
               <h2 className="text-[22px]">Frequently Asked Questions</h2>
