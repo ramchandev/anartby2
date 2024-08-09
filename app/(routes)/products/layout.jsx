@@ -1,14 +1,11 @@
 import React from 'react'
 import CategorySidebar from './_components/CategorySidebar'
 
-export const metadata = {
-  title: "Anartby Category",
-  description: "View Our Collections",
-};
+
 
 function layout({children}) {
   return (
-    <div>
+    <div className='mx-6 md:mx-16 lg:mx-auto container'>
     <div className='grid grid-cols-1 md:grid-cols-4 mt-8'>
         <div className='hidden md:block col-span-1'>
             <CategorySidebar />

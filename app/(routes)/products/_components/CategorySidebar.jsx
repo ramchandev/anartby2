@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link"
 import { usePathname } from "next/navigation";
 
+
 function CategorySidebar() {
 
 /* Function to get the category from the GlobalApi*/
@@ -35,7 +36,7 @@ const getcatsList=()=>{
         <h2 className='font-bold mb-3 text-lg text-primary mt-8'>Categories</h2>
         <div >
 {categoryList.map((category,index)=>(
-    <Link href={'/category/'+category.slug} key={index} className={`flex gap-2 p-3 border rounded mb-3 mr-10 cursor-pointer hover:bg-orange-50 hover:text-primary hover:shadow-sm items-center
+    <Link href={'/products/'+category.slug} key={index} className={`flex gap-2 p-3 border rounded mb-3 mr-10 cursor-pointer hover:bg-orange-50 hover:text-primary hover:shadow-sm items-center
       ${selectedCategory==category.slug&&'border-primary text-primary shadow-md bg-orange-50'}
       `
 

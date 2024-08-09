@@ -30,6 +30,7 @@ const getFeaturedProducts = async() => {
   name
   description
   sku
+  slug
   tag{
     tagName
   }
@@ -40,8 +41,10 @@ const getFeaturedProducts = async() => {
   categories
   {
     name
+    slug
   }
   price
+  salePrice
   
 }
 }
@@ -56,8 +59,10 @@ const getPaintingByartist = async(category) => {
  products (where: {categories_every:{slug:"`+category+`"}}){
   id
   name
+  shotDesc
   description
   sku
+  slug
   tag{
     id
     tagName
@@ -72,7 +77,17 @@ const getPaintingByartist = async(category) => {
     slug
   }
   price
-  
+  salePrice
+  specs
+    {
+      name
+      value
+    }
+      faq
+    {
+      question
+      answer
+    }
 }
 }`
 const result = await request(MASTER_URL, query)
@@ -85,8 +100,10 @@ const getFeaturedPro =async()=>{
   products(where: {featured: true}) {
     id
     name
+    shotDesc
     description
     sku
+    slug
     tag {
       id
       tagName
@@ -97,8 +114,20 @@ const getFeaturedPro =async()=>{
       categories
   {
     name
+    slug
   }
     price
+    salePrice
+    specs
+    {
+      name
+      value
+    }
+      faq
+    {
+      question
+      answer
+    }
   }
 }`
 const result = await request(MASTER_URL, query)
@@ -123,11 +152,52 @@ const result = await request(MASTER_URL, query)
 return result
 }
 
+const querySingleproduct =async(productslug)=>{
+  const query = gql `
+   query getsingleproduct {
+  products(where: {slug: "`+productslug+`"}) {
+    id
+    name
+    shotDesc
+    description
+    sku
+    slug
+    tag {
+      id
+      tagName
+    }
+    images {
+      url
+    }
+    categories {
+      name
+      slug
+    }
+    price
+    salePrice
+    specs
+    {
+      name
+      value
+    }
+      faq
+    {
+      question
+      answer
+    }
+  }
+}`
+const result = await request(MASTER_URL, query)
+return result
+}
+
+
 
 export default {
     getCategory,
     getFeaturedProducts,
     getPaintingByartist,
     getFeaturedPro,
-    querySingleCat
+    querySingleCat,
+    querySingleproduct
 }

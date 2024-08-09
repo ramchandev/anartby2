@@ -12,16 +12,115 @@ import {
   UserButton
 } from '@clerk/nextjs'
 
+
+
+import { FaceIcon, ImageIcon, SunIcon } from '@radix-ui/react-icons'
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
 function Header() {
+  
   return (
-    <div className='p-3 shadow-sm flex justify-between align-middle'>
+    <div>
+    <div className='mx-6 md:mx-16 lg:mx-auto container p-3  flex justify-between align-middle'>
     <div className='flex items-center gap-8'>
         <Link className='hover:cursor-pointer' href={'/'}><Image  src='/Anartby-logo.svg' alt='anartby' width={84} height={84} /></Link>
         <div className='md:flex items-center gap-6 hidden'>
-            <Link href={'/'} className='hover:scale-105 hover:text-primary cursor-pointer'>Home</Link>
+
+        <NavigationMenu>
+      <NavigationMenuList>
+
+      <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Home
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-orange-100/50 to-orange-100 p-6 no-underline outline-none focus:shadow-md"
+                    href="/">
+
+                    <ImageIcon className="h-6 w-6" />
+                    
+                    <div className="mb-2 mt-4 text-lg font-medium">
+                      Our Products
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Beautiful paintings, Photographs printed perfectly for you. Browse through our range of products.
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <ul >
+                <li className='text-sm leading-normal'>
+                  <Link href={'/'}>Van Goah</Link>
+                </li>
+
+                <li className='text-sm leading-normal'>
+                  <Link href={'/'}>Van Goah</Link>
+                </li>
+                <li className='text-sm leading-normal'>
+                  <Link href={'/'}>Van Goah</Link>
+                </li>
+                <li className='text-sm leading-normal'>
+                  <Link href={'/'}>Van Goah</Link>
+                </li>
+
+                 
+
+              </ul>
+
+              
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              About Us
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Blog
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem >
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Contact Us
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+
+            {/* <Link href={'/'} className='hover:scale-105 hover:text-primary cursor-pointer'>Home</Link>
             <h2 className='hover:scale-105 hover:text-primary cursor-pointer'>Products</h2>
             <h2 className='hover:scale-105 hover:text-primary cursor-pointer'>About Us</h2>
-            <h2 className='hover:scale-105 hover:text-primary cursor-pointer'>Contact Us</h2>
+            <h2 className='hover:scale-105 hover:text-primary cursor-pointer'>Contact Us</h2> */}
         </div>
     </div>
     <div>
@@ -38,6 +137,9 @@ function Header() {
             
             
         </div>
+      
+    </div>
+    <hr/>
     </div>
   )
 }
