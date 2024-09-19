@@ -5,7 +5,9 @@ import GlobalApi from "@/app/_services/GlobalApi";
 import Image from "next/image";
 import Link from "next/link"
 import { usePathname } from "next/navigation";
+import { Toaster } from '@/components/ui/sonner';
  
+
 
 function layout({children}) {
 
@@ -20,7 +22,9 @@ function layout({children}) {
         </div>
     <div className='md:col-span-3'>
       
-      {children}</div>
+      {children}
+      <Toaster/>
+      </div>
     </div>
     </div>
 

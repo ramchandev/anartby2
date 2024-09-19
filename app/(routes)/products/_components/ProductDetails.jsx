@@ -44,6 +44,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner"
 
 function ProductDetails() {
   const params = usePathname();
@@ -57,9 +58,19 @@ function ProductDetails() {
   const getProductData = () => {
     GlobalApi.querySingleproduct(productSlug).then((resp) => {
       setproductData(resp?.products);
-      console.log(resp?.products);
+      //console.log(resp?.products);
     });
   };
+
+  const savelogin=()=>{
+    //console.log('ready-save');
+    GlobalApi.savecomments().then((resp)=>{
+      toast("Added Successfully");
+    },(e)=>{
+      toast("There is some issue.");
+    })
+
+  }
 
 
   
@@ -128,7 +139,8 @@ function ProductDetails() {
                         <SheetHeader>
                           <SheetTitle>Cart</SheetTitle>
                           <SheetDescription>
-                            Products will come here.
+                            
+                            <Button onClick={()=>savelogin()}>Checkout</Button>
                           </SheetDescription>
                         </SheetHeader>
                       </SheetContent>

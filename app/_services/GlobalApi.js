@@ -191,6 +191,25 @@ const result = await request(MASTER_URL, query)
 return result
 }
 
+/****Query 1: to get slides Starts */
+const savecomments = async () => {
+  const mutation = gql`
+ mutation addreviews {
+  createReview(
+    data: {headline: "Nice Products", name: "ram", email: "ramchandev@gmail.com", content: "Good Product", product: {connect: {sku: "CA-VVG-003"}}, rating: 5}
+  ) {
+    id
+  }
+     publishManyReviews(to: PUBLISHED) {
+    count
+  }
+ 
+}
+  `;
+  const result = await request(MASTER_URL, mutation);
+  return result;
+};
+/****Query 1: to get slides Starts */
 
 
 export default {
@@ -199,5 +218,6 @@ export default {
     getPaintingByartist,
     getFeaturedPro,
     querySingleCat,
-    querySingleproduct
+    querySingleproduct,
+    savecomments
 }

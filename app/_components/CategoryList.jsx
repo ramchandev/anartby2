@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 function CategoryList({categoryList}) {
+  
   return (
     <div className='mx-4 md:mx-22 lg:mx-52 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 sm:grid-cols-2 gap-4'>
         {

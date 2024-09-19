@@ -9,6 +9,7 @@ function CatDetails() {
     const catSlug=params.split('/')[2];
     //console.log(catSlug);
     const [catdata, setcatdata] = useState([]);
+    
     useEffect(() => {
         params && getCatData();
       }, [params]);
