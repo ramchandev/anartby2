@@ -1,9 +1,17 @@
-import React from 'react'
+"use client"
 import CategorySidebar from './_components/CategorySidebar'
-
-
+import React, { useEffect, useState } from "react";
+import GlobalApi from "@/app/_services/GlobalApi";
+import Image from "next/image";
+import Link from "next/link"
+import { usePathname } from "next/navigation";
+ 
 
 function layout({children}) {
+
+ 
+     
+
   return (
     <div className='mx-6 md:mx-16 lg:mx-auto container'>
     <div className='grid grid-cols-1 md:grid-cols-4 mt-8'>

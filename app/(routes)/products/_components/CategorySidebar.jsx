@@ -6,9 +6,12 @@ import Link from "next/link"
 import { usePathname } from "next/navigation";
 
 
+
 function CategorySidebar() {
 
 /* Function to get the category from the GlobalApi*/
+
+
 
 const [categoryList,setCategoryList]=useState([]);
 const [selectedCategory,setselectedCategory]=useState([]);
